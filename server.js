@@ -44,3 +44,14 @@ app.listen(PORT, function () {
 }).on('error', err => {
   console.error(err);
 });
+
+// Listen for incoming connections
+if (require.main === module) {
+  app.listen(PORT, function () {
+    console.info(`Server listening on ${this.address().port}`);
+  }).on('error', err => {
+    console.error(err);
+  });
+}
+
+module.exports = app; // Export for testing
